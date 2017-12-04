@@ -1,8 +1,9 @@
+require('dotenv').config();
 const request = require('request');
 
 var getWeather = (lat, lng, callback) => {
   request({
-    url: `https://api.forecast.io/forecast/4a04d1y52fd9d32c97a2c291a32d5e2d/${lat},${lng}`,
+    url: `https://api.forecast.io/forecast/${process.env.API_KEY}/${lat},${lng}`,
     json: true
   }, (error, response, body) => {
     if (error) {
